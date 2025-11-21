@@ -132,6 +132,7 @@ interactions.csv
 Run:
 
 python analytics.py
+<img width="1728" height="894" alt="Screenshot 2025-11-21 095810" src="https://github.com/user-attachments/assets/553c28b2-24ad-4f9a-8d33-d604e7cecadb" />
 
 
 Generates insights such as:
