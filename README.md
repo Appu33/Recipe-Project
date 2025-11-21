@@ -230,10 +230,15 @@ This dataset helps track who interacts with recipes, forming the basis for inter
 
 2]RECIPE DETAILS:
 <img width="1816" height="912" alt="recipe" src="https://github.com/user-attachments/assets/bc09dfdc-9039-4577-a673-b27d65cfd7eb" />
+
 📘 Description:
+
 This image shows the Recipes collection inside Firebase Firestore.
+
 It displays:
+
 1]Recipe IDs
+
 2]Title
 3]Difficulty
 4]Ingredients array
