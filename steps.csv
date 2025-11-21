@@ -1,0 +1,65 @@
+recipe_id,step_number,instruction
+r001,1,Heat butter in a pan
+r001,2,Add tomato puree and cook
+r001,3,Add paneer cubes
+r001,4,Add cream and simmer
+r002,1,Step 1
+r002,2,Step 2
+r002,3,Step 3
+r003,1,Step 1
+r003,2,Step 2
+r003,3,Step 3
+r004,1,Step 1
+r004,2,Step 2
+r004,3,Step 3
+r005,1,Step 1
+r005,2,Step 2
+r005,3,Step 3
+r006,1,Step 1
+r006,2,Step 2
+r006,3,Step 3
+r007,1,Step 1
+r007,2,Step 2
+r007,3,Step 3
+r008,1,Step 1
+r008,2,Step 2
+r008,3,Step 3
+r009,1,Step 1
+r009,2,Step 2
+r009,3,Step 3
+r010,1,Step 1
+r010,2,Step 2
+r010,3,Step 3
+r011,1,Step 1
+r011,2,Step 2
+r011,3,Step 3
+r012,1,Step 1
+r012,2,Step 2
+r012,3,Step 3
+r013,1,Step 1
+r013,2,Step 2
+r013,3,Step 3
+r014,1,Step 1
+r014,2,Step 2
+r014,3,Step 3
+r015,1,Step 1
+r015,2,Step 2
+r015,3,Step 3
+r016,1,Step 1
+r016,2,Step 2
+r016,3,Step 3
+r017,1,Step 1
+r017,2,Step 2
+r017,3,Step 3
+r018,1,Step 1
+r018,2,Step 2
+r018,3,Step 3
+r019,1,Step 1
+r019,2,Step 2
+r019,3,Step 3
+r020,1,Step 1
+r020,2,Step 2
+r020,3,Step 3
+r021,1,Step 1
+r021,2,Step 2
+r021,3,Step 3
