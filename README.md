@@ -1,32 +1,85 @@
-RECIPE PROJECT
+.
 
-🍽️ FIREBASE RECIPE ANALYTICS PIPELINE
+🍽️ Firebase Recipe Analytics Pipeline
+End-to-End ETL + Analytics Project Using Firebase & Python
 
-A Complete ETL + Analytics Project Using Firebase Firestore & Python
+A complete data engineering workflow built using Firebase Firestore, Python, and Pandas.
+This project demonstrates ETL extraction, data cleaning, validation, transformation, analytics, and visual chart generation.
 
-📌 PROJECT OVERVIEW
+📑 Table of Contents
 
-This project implements a complete data engineering pipeline that:
-Extracts recipe, user, and interaction data from Firebase Firestor Transforms, validates, and normalizes the data using Python Loads clean structured data into CSV datasets Generates visual and statistical analytics insights
+Project Overview
 
+Features
 
-THIS PROJECT DEMONSTRATES:
+Project Structure
 
-🔥 Firebase Database Integration
+Data Model
 
-🧱 Proper Data Modeling
+4.1 Recipe Dataset
 
-🔄 ETL Pipeline (Extract → Transform → Load)
+4.2 Ingredients Dataset
 
-✔ Data Quality Validation
+4.3 Steps Dataset
 
-📊 Analytics & Charts
+4.4 Users Dataset
+
+4.5 Interactions Dataset
+
+ETL Pipeline
+
+5.1 Extract
+
+5.2 Transform
+
+5.3 Validate
+
+5.4 Load
+
+How to Run the Project
+
+Analytics & Visualizations
+
+7.1 Users Chart
+
+7.2 Recipes Chart
+
+7.3 Interactions Chart
+
+7.4 Difficulty Pie Chart
+
+7.5 Ingredients Bar Chart
+
+Screenshots
+
+Known Limitations
+
+Future Enhancements
+
+Conclusion
+
+1️⃣ Project Overview
+
+This project implements a complete ETL + Analytics Pipeline using Firebase as the source system.
+It processes recipe data, user data, and interaction data, then performs cleaning, validation, normalization, and analytics.
+
+2️⃣ Features
+
+🔥 Integration with Firebase Firestore
+
+🧱 Clean & normalized data modeling
+
+🔄 Full ETL (Extract → Transform → Validate → Load)
+
+✔ Data quality checks
+
+📊 Interactive analytics & charts
 
 📁 Production-ready folder structure
 
-📝 Industry-grade documentation
+📄 Easy-to-read CSV outputs
 
-📂 PROJECT STRUCTURE
+3️⃣ Project Structure
 Recipeproject/
 │── README.md
 │── admin_key.json
@@ -42,82 +95,87 @@ Recipeproject/
 │── interactions.csv
 │── steps.csv
 │── screenshots/
-└── __pycache__/
+│     ├── users.png
+│     ├── recipe.png
+│     ├── interactions.png
+│     ├── piechart.png
+│     ├── barchart.png
+└── pycache/
 
-🧱 DATA MODEL
+4️⃣ Data Model
 
-Your pipeline produces four normalized datasets.
+Your final output consists of four normalized datasets, ideal for analytics.
 
-📘 recipe.csv
+4.1 recipe.csv
 Column	Description
 id	Recipe ID
 title	Recipe name
-prep_time	Preparation time (min)
+prep_time	Preparation time (minutes)
 difficulty	easy / medium / hard
 created_by	User ID (FK → users)
-🥗 ingredients.csv
+4.2 ingredients.csv
 Column	Description
 recipe_id	FK → recipe.id
 name	Ingredient name
-📄 steps.csv
+4.3 steps.csv
 Column	Description
 recipe_id	FK → recipe.id
 step_no	Step number
 description	Step instructions
-⭐ interactions.csv
+4.4 users.csv (Optional)
+Column	Description
+id	User ID
+name	User name
+email	User email
+4.5 interactions.csv
 Column	Description
 user_id	FK → users
 recipe_id	FK → recipe
 viewed	1 = viewed
 liked	1 = liked
 cooked	1 = attempted cook
-🔄 ETL PIPELINE(etl_pipeline.py)
-
-1️⃣EXTRACT
+5️⃣ ETL Pipeline
+5.1 Extract
 
 Connects to Firestore using firebase_config.py
 
-Fetches collections:
+Reads collections: recipes, users, interactions
 
-recipes
+Saves raw documents to Python structures
 
-users
-
-interactions
-
-Saves raw data to CSV
-
-2️⃣ TRANSFORM
-
-Cleans and standardizes:
+5.2 Transform
 
 Removes duplicates
 
-Converts timestamps to date
-
 Standardizes difficulty labels
+
+Converts timestamps → dates
 
 Converts viewed/liked/cooked → 0/1
 
-Removes blank or malformed rows
+Splits recipe into normalized tables
 
-3️⃣ VALIDATE(validate_data.py)
+Cleans malformed / empty data
 
-Quality checks performed:
+5.3 Validate
 
-Missing or null values
+Checks performed by validate_data.py:
+
+Null or missing values
 
 Broken foreign keys
 
 Invalid difficulty fields
 
-Incorrect datatypes
+Invalid numeric fields
 
-Empty ingredient/step lists
+Empty ingredients or steps
 
-4️⃣ LOAD
+Mismatched interaction references
 
-Outputs final normalized CSV files:
+5.4 Load
+
+Exports clean, structured datasets:
 
 recipe.csv
 
@@ -127,157 +185,100 @@ steps.csv
 
 interactions.csv
 
-📊 ANALYTICS (analytics.py)
-
-Run:
-
-python analytics.py
-
-Generates insights such as:
-
-✔ Most common ingredients
-
-✔ Average preparation time
-
-✔ Recipe difficulty distribution
-
-✔ Top viewed recipes
-
-✔ Top liked recipes
-
-✔ Correlation: prep_time vs likes
-
-✔ User engagement metrics
-
-Visual charts are automatically saved inside:
-
-screenshots/
-
-📈 Example Insights
-Insight	Example Output
-Average prep time	22 minutes
-Most common ingredient	Salt
-Most liked recipe	r001
-Most viewed recipe	r001
-Strongest correlation	prep_time vs likes
-
-🧪 HOW TO RUN THIS PROJECT
-
-1️⃣ Install dependencies
+6️⃣ How to Run the Project
+1. Install Dependencies
 pip install pandas matplotlib firebase-admin seaborn plotly
 
 
-If permission issues occur:
+If needed:
 
 pip install --user pandas matplotlib seaborn plotly
 
-2️⃣ Add Firebase Admin Key
+2. Add Firebase Key
 
 Place admin_key.json inside the project folder.
 
-3️⃣ Run ETL
+3. Run ETL
 python etl_pipeline.py
 
-4️⃣ Run Data Validation (optional)
+4. Run Validation
 python validate_data.py
 
-5️⃣ Run Analytics
+5. Run Analytics
 python analytics.py
 
-⚠️KNOWN LIMITATIONS
 
+Charts will be stored in:
 
-Firestore is not optimized for heavy relational workloads
+screenshots/
 
-ETL runs in batch mode, not real-time
+7️⃣ Analytics & Visualizations
 
-CSV export cannot store nested JSON perfectly
+The pipeline generates the following insights:
 
-Analytics limited to available interaction types (no ratings/comments)
+7.1 Users Chart
 
-🚀 Future Enhancements
+Distribution of users and basic engagement counts.
 
-Convert this pipeline into an Apache Airflow DAG
+7.2 Recipes Chart
 
-Store cleaned data in BigQuery instead of CSV
+Top recipes based on appearance and metadata.
 
-Build a full Power BI / Tableau dashboard
+7.3 Interactions Chart
 
-Add:
+Bar chart showing views, likes, cooked attempts per recipe.
 
-recipe ratings
+7.4 Difficulty Pie Chart
+
+Pie chart showing distribution of easy/medium/hard recipes.
+
+7.5 Ingredients Bar Chart
+
+Top ingredients used across all recipes.
+
+8️⃣ Screenshots
+Image	Description
+<img width="1814" height="905" alt="users" src="https://github.com/user-attachments/assets/e87fb4ed-f4b2-455a-8656-454bbb86303a" />
+	User analytics bar chart
+<img width="1816" height="912" alt="recipe" src="https://github.com/user-attachments/assets/8943f2ea-0be8-4a2b-a4fe-9a56c4aadf3e" />
+	Recipes summary
+<img width="1804" height="904" alt="Interactions" src="https://github.com/user-attachments/assets/1e465b7b-70f2-4837-8371-8ec2b424a9b7" />
+	Views, likes, cooked chart
+<img width="1728" height="894" alt="Piechart" src="https://github.com/user-attachments/assets/b19896e2-3d57-4b75-9ed2-88ed527cbb38" />
+  Difficulty distribution
+<img width="1876" height="993" alt="Barchart" src="https://github.com/user-attachments/assets/4e46139e-5666-48bd-ae2d-cb24c3d93c8a" />
+	Common ingredients bar chart
+9️⃣ Known Limitations
+
+Firestore not ideal for relational queries
+
+ETL is batch-based, not real-time
+
+Nested Firestore JSON → CSV flattening is limited
+
+No ratings or comments included
+
+🔟 Future Enhancements
+
+Convert ETL into Apache Airflow DAG
+
+Move datasets to BigQuery
+
+Build Power BI / Tableau dashboards
+
+Add interaction types:
+
+ratings
 
 comments
 
-user segmentation
+user engagement scoring
 
-Add real-time streaming using Firebase triggers
+Real-time update pipeline using Firebase Triggers
 
-Dockerize the entire pipeline
+Dockerize entire solution
 
-OUTPUT:
-1] USERS DETAILS:
-<img width="1814" height="905" alt="users" src="https://github.com/user-attachments/assets/e65cf045-6cbb-429d-9b63-f2d479bc5068" />
-📘 Description:
+1️⃣1️⃣ Conclusion
 
-This image shows the Users collection in Firebase Firestore.
-Each user document includes:
-1]User ID
-2]Name
-3]Email
-4]Created_at timestamp
-This dataset helps track who interacts with recipes, forming the basis for interactions analytics such as views, likes, and cook attempts.
-
-2]RECIPE DETAILS:
-<img width="1816" height="912" alt="recipe" src="https://github.com/user-attachments/assets/bc09dfdc-9039-4577-a673-b27d65cfd7eb" />
-
-📘 Description:
-
-This image shows the Recipes collection inside Firebase Firestore.
-
-It displays:
-
-1]Recipe IDs
-
-2]Title
-3]Difficulty
-4]Ingredients array
-5]Step-by-step instructions
-6]Created_by (User ID reference)
-This represents the raw data source your ETL pipeline extracts before transforming and normalizing it into CSV files.
-
-3]INTERACTION DETAILS:
-<img width="1804" height="904" alt="Interactions" src="https://github.com/user-attachments/assets/60257a82-7c5e-481a-bc2f-8ad82c982dee" />
-This bar chart visualizes user engagement across recipes.
-Each bar represents a different recipe (identified by recipe IDs), and the height of the bar shows how many times that recipe was:
-1]Viewed
-2]Liked
-3]Cooked (attempted)
-The chart clearly shows which recipes are the most popular among users.
-This metric measures real engagement beyond browsing — it shows which recipes users actually use.
-4]PIECHART
-<img width="1728" height="894" alt="Piechart" src="https://github.com/user-attachments/assets/56fa63b2-641a-43b4-8156-cd89f67142a6" />
-📘 Description:
-This pie chart visualizes the distribution of recipes based on their difficulty levels.
-The chart divides recipes into three categories:
-1]Easy
-2]Medium
-3]Hard
-Each slice represents the percentage share of that difficulty category in the entire dataset.
-This chart helps quickly understand whether your recipe collection leans more toward simple dishes or advanced ones.
-
-5]BARCHART
-<img width="1876" height="993" alt="Barchart" src="https://github.com/user-attachments/assets/6233e252-35d1-4637-b78f-853668331f59" />
-📘 Description:
-This bar chart displays the top most frequently used ingredients across all recipes.
-1]The Y-axis lists ingredient names.
-2]The X-axis shows the number of recipes that include each ingredient.
-This visualization highlights which ingredients are the most common (e.g., Salt, Onion, Tomato), helping identify cooking patterns and recipe trends.
-
-
-
-
-
-🔚 CONCLUSION
-
-This project delivers a complete end-to-end ETL and analytics pipeline built on Firebase and Python. It converts raw Firestore data into clean, validated CSV datasets and generates meaningful insights with visual charts. The structure is modular, easy to extend, and serves as a strong foundation for real-world data engineering workflows.
+This project demonstrates a complete, industry-style data engineering workflow using Firebase and Python.
+It delivers structured datasets, powerful analytics, and a modular, maintainable architecture suitable for real-world use.
