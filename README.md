@@ -16,6 +16,13 @@
 ## 🌟 Overview
 This project implements a **complete Firebase-based data engineering workflow** for managing and analyzing **recipe, user, and interaction data**.  
 
+<p align="center">
+<img src="https://img.shields.io/badge/ETL-%E2%9A%99-blue?style=for-the-badge" alt="ETL"/>
+<img src="https://img.shields.io/badge/Analytics-%F0%9F%93%8A-yellow?style=for-the-badge" alt="Analytics"/>
+<img src="https://img.shields.io/badge/Validation-%E2%9C%85-green?style=for-the-badge" alt="Validation"/>
+<img src="https://img.shields.io/badge/Data%20Model-%F0%9F%97%82-orange?style=for-the-badge" alt="Data Model"/>
+</p>
+
 **Key Features:**  
 - ⚙️ **ETL Pipeline:** Extract, transform, and load data from Firebase  
 - ✅ **Data Validation:** Ensure completeness and correctness of the data  
@@ -28,21 +35,20 @@ This project implements a **complete Firebase-based data engineering workflow** 
 ---
 
 ## 📌 Table of Contents
-1. [Folder Structure](#folder-structure)
-2. [Data Model](#data-model)
-3. [ETL Pipeline](#etl-pipeline)
-4. [Data Validation](#data-validation)
-5. [Analytics & Insights](#analytics--insights)
-6. [How to Run](#how-to-run)
-7. [Notes / Limitations](#notes--limitations)
-8. [Conclusion](#conclusion)
-9. [Files and Screenshots](#files-and-screenshots)
+1. [Overview](#-overview)  
+2. [Folder Structure](#folder-structure)  
+3. [Data Model](#data-model)  
+4. [ETL Pipeline](#etl-pipeline)  
+5. [Data Validation](#data-validation)  
+6. [Analytics & Insights](#analytics--insights)  
+7. [Complete 7-Step Process (Run + Notes + Conclusion)](#complete-7-step-process-run--notes--conclusion)  
 
 ---
 
-## 1. 📁 Folder Structure
+<details>
+<summary>2. 📁 Folder Structure</summary>
 
-### 1.1 Scripts and Files
+### Scripts and Files
 | File | Description |
 |------|-------------|
 | `analytics.py` | Performs analytics and generates visualizations 📊 |
@@ -53,19 +59,20 @@ This project implements a **complete Firebase-based data engineering workflow** 
 | `seed_interactions.py` | Seed interaction data 👍 |
 | `validate_data.py` | Data validation script ✅ |
 
-### 1.2 Data & Config
+### Data & Config
 | File/Folder | Description |
 |-------------|-------------|
-| [`recipe.csv`](recipe.csv) | Exported recipes data 📝 |
-| [`ingredients.csv`](ingredients.csv) | Exported ingredients data 🌿 |
-| [`steps.csv`](steps.csv) | Exported recipe steps 🔪 |
-| [`interactions.csv`](interactions.csv) | Exported user interactions 👥 |
+| `recipe.csv` | Exported recipes data 📝 |
+| `ingredients.csv` | Exported ingredients data 🌿 |
+| `steps.csv` | Exported recipe steps 🔪 |
+| `interactions.csv` | Exported user interactions 👥 |
 | `admin_key.json` | Firebase service account key 🔐 |
-| [`screenshots/`](screenshots/) | Folder to store charts and visualizations 📸 |
+| `screenshots/` | Folder to store charts and visualizations 📸 |
 
----
+</details>
 
-## 2. 🗂️ Data Model
+<details>
+<summary>3. 🗂️ Data Model</summary>
 
 ### Users
 **Fields:** `user_id`, `name`, `email`, `age`, `gender`, `created_at` 👤  
@@ -78,31 +85,22 @@ This project implements a **complete Firebase-based data engineering workflow** 
 
 **Relationship:** Users interact with Recipes through **Interactions** 🔗  
 
----
+</details>
 
-## 3. ⚙️ ETL Pipeline
+<details>
+<summary>4. ⚙️ ETL Pipeline</summary>
 
 ### Workflow
 - **Extract:** Retrieve data from Firebase Firestore collections (`users`, `recipes`, `interactions`) 👤🍲👍  
 - **Transform:** Normalize data into **recipes, ingredients, steps** tables 📊, clean fields, standardize difficulty and timestamps 🕒  
-- **Load:** Export to CSV files: [`recipe.csv`](recipe.csv), [`ingredients.csv`](ingredients.csv), [`steps.csv`](steps.csv), [`interactions.csv`](interactions.csv) 👥  
+- **Load:** Export to CSV files: `recipe.csv` 🍲, `ingredients.csv` 🌿, `steps.csv` 🔪, `interactions.csv` 👥  
 
 **Tools Used:** Python 🐍, `firebase_admin`, `pandas`, `matplotlib`, `seaborn`  
 
----
+</details>
 
-### ETL Progress
-ETL Pipeline [██████████] 100%
-Data Cleaning [█████████ ] 90%
-Normalization [████████ ] 80%
-CSV Export [██████████] 100%
-
-yaml
-Copy code
-
----
-
-## 4. ✅ Data Validation
+<details>
+<summary>5. ✅ Data Validation</summary>
 
 ### Validation Rules
 - ✅ Required fields must be present  
@@ -113,9 +111,10 @@ Copy code
 ### Validation Report
 `validate_data.py` generates a **report of valid and invalid records** 🧐  
 
----
+</details>
 
-## 5. 📊 Analytics & Insights
+<details>
+<summary>6. 📊 Analytics & Insights</summary>
 
 ### Sample Insights
 | # | Insight | Emoji |
@@ -131,71 +130,65 @@ Copy code
 | 9 | Interaction type distribution (views, likes, cooks) | 📈 |
 | 10 | Recipes with highest average rating | 🥇 |
 
-**Visualizations:** Bar charts, pie charts, ingredient frequency plots 📸  
+**Visualizations:** bar charts, pie charts, ingredient frequency plots 📸  
 
----
+</details>
 
-## 6. 🚀 How to Run
+<details>
+<summary>7. 🚀 Complete 7-Step Process (Run + Notes + Conclusion)</summary>
 
-```bash
-# Install dependencies
-pip install -r requirements.txt
+<ol>
+<li>
+  <strong>Install Dependencies</strong><br>
+  <code>pip install -r requirements.txt</code>
+</li>
 
-# Seed Firebase Data (Optional)
-python seed_users.py
-python seed_recipes.py
-python seed_interactions.py
+<li>
+  <strong>Seed Firebase Data (Optional)</strong><br>
+  <code>python seed_users.py</code><br>
+  <code>python seed_recipes.py</code><br>
+  <code>python seed_interactions.py</code>
+</li>
 
-# Run ETL Pipeline
-python etl_pipeline.py
+<li>
+  <strong>Run ETL Pipeline</strong><br>
+  <code>python etl_pipeline.py</code>
+</li>
 
-# Validate Data
-python validate_data.py
+<li>
+  <strong>Validate Data</strong><br>
+  <code>python validate_data.py</code>
+</li>
 
-# Generate Analytics
-python analytics.py
-7. ⚠️ Notes / Limitations
-🆔 Recipe IDs in Firebase are auto-generated
+<li>
+  <strong>Generate Analytics</strong><br>
+  <code>python analytics.py</code>
+</li>
 
-👀 User interactions are preserved even if recipes are deleted
+<li>
+  <strong>Notes / Limitations</strong>
+  <ul>
+    <li>🆔 Recipe IDs in Firebase are <strong>auto-generated</strong></li>
+    <li>👀 User interactions are <strong>preserved</strong> even if recipes are deleted</li>
+    <li>⏱️ Analytics are <strong>batch-oriented</strong>, not real-time</li>
+    <li>📸 Charts are stored in the <code>screenshots/</code> folder</li>
+    <li>⚠️ Some recipes and interactions are <strong>synthetic</strong> for testing</li>
+    <li>🐍 ETL and analytics are implemented in Python; scaling for large datasets may require optimization</li>
+    <li>🔗 Data relationships must be maintained carefully to avoid orphaned records</li>
+  </ul>
+</li>
 
-⏱️ Analytics are batch-oriented, not real-time
-
-📸 Charts generated by analytics are stored in the screenshots/ folder
-
-⚡ Some recipes or interactions may be synthetic for testing purposes
-
-8. 📝 Conclusion
-This project demonstrates a complete Firebase-based data engineering workflow, showcasing:
-
-🗂️ Data Modeling & Normalization: Structured recipes, ingredients, steps, users, and interactions
-
-⚙️ ETL Pipeline: Efficiently extracting, transforming, and loading data
-
-✅ Data Quality Validation: Ensuring data integrity and consistency
-
-📊 Analytics & Visualization: Generating actionable insights to understand user engagement and recipe popularity
-
-This workflow can be extended for real-time analytics or integrated with a frontend for dynamic recipe recommendations.
-
-Candidate: Apeksha Jadhav
-Tools Used: Python, Firebase, Pandas, Matplotlib, Seaborn
-Date: November 2025
-
-9. 📂 Files and Screenshots
-Data Files
-recipe.csv
-
-ingredients.csv
-
-steps.csv
-
-interactions.csv
-
-Screenshots
-Charts generated are stored in the screenshots/ folder:
-
-Bar charts
-
-Pie charts
-
+<li>
+  <strong>Conclusion</strong>
+  <p>This project demonstrates a <strong>full end-to-end Firebase-based data engineering workflow</strong>:</p>
+  <ul>
+    <li>🗂️ <strong>Data Modeling & Normalization:</strong> Structured recipes, ingredients, steps, users, and interactions</li>
+    <li>⚙️ <strong>ETL Pipeline:</strong> Efficiently extracting, transforming, and loading data</li>
+    <li>✅ <strong>Data Quality Validation:</strong> Ensuring integrity, consistency, and correctness</li>
+    <li>📊 <strong>Analytics & Visualization:</strong> Generating actionable insights for recipe engagement</li>
+  </ul>
+  <p><strong>Future Scope:</strong> Can be extended to support <strong>real-time analytics</strong> or integrated with a frontend application for dynamic recipe recommendations.</p>
+  <p align="center">Made with ❤️ by <strong>Apeksha Jadhav</strong></p>
+</li>
+</ol>
+</details>
