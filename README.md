@@ -1,182 +1,206 @@
-# 🍽️ Firebase Recipe Analytics Pipeline
+1. 🍽️ FIREBASE RECIPE PROJECT
 
-**A Complete End-to-End ETL + Analytics Project Using Firebase Firestore & Python**
+1.1 OVERVIEW
 
----
+This project implements a data pipeline using Firebase Firestore to manage and analyze recipe, user, and interaction data.
+It extracts, transforms, validates, and visualizes data to generate actionable insights on recipes and user engagement.
 
-<p align="center">
-  <a href="https://github.com/yourusername/RecipeProject/stargazers">
-    <img src="https://img.shields.io/github/stars/yourusername/RecipeProject?style=for-the-badge" alt="GitHub stars"/>
-  </a>
-  <a href="https://github.com/yourusername/RecipeProject/issues">
-    <img src="https://img.shields.io/github/issues/yourusername/RecipeProject?style=for-the-badge" alt="GitHub issues"/>
-  </a>
-</p>
+The pipeline demonstrates end-to-end data engineering skills, including ETL, data validation, and analytics.
 
----
 
-## 📌 Project Overview
-This project implements a **full data engineering pipeline** that:
+2. 📁 FOLDER STRUCTURE
 
-- Extracts recipe, user, and interaction data from **Firebase Firestore**  
-- Transforms, validates, and normalizes the data using **Python**  
-- Loads clean structured data into **CSV datasets**  
-- Generates **statistical and visual analytics insights**  
 
-**Features:**
-- 🔥 Firebase Database Integration  
-- 🧱 Data Modeling  
-- 🔄 ETL Pipeline (Extract → Transform → Load)  
-- ✔ Data Quality Validation  
-- 📊 Analytics & Charts  
+2.1 SCRIPTS AND FILES
 
----
+1]    analytics.py — Performs analytics and generates visualizations 📊
 
-## 📁 Project Structure
+2]    etl_pipeline.py — ETL pipeline for recipes, ingredients, steps, and interactions
 
-<details>
-<summary>Click to expand Project Structure</summary>
+3]    firebase_config.py — Firebase configuration 🔑
 
-```text
-Recipeproject/
-├─ README.md
-├─ admin_key.json
-├─ firebase_config.py
-├─ etl_pipeline.py
-├─ validate_data.py
-├─ analytics.py
-├─ seed_recipes.py
-├─ seed_users.py
-├─ seed_interactions.py
-├─ recipe.csv
-├─ ingredients.csv
-├─ steps.csv
-├─ interactions.csv
-├─ screenshots/       # Analytics screenshots
-└─ __pycache__/
-</details>
-🧱 Data Model
-<details> <summary>Click to expand Data Model</summary>
-Recipe (recipe.csv)
-text
-Copy code
-Column       | Description
--------------|------------------------------
-id           | Recipe ID
-title        | Recipe Name
-prep_time    | Preparation time (minutes)
-difficulty   | easy / medium / hard
-created_by   | User ID (FK → users)
-Ingredients (ingredients.csv)
-text
-Copy code
-Column     | Description
------------|------------------
-recipe_id  | FK → recipe.id
-name       | Ingredient Name
-Steps (steps.csv)
-text
-Copy code
-Column       | Description
--------------|----------------
-recipe_id    | FK → recipe.id
-step_no      | Step Number
-description  | Step Instructions
-Interactions (interactions.csv)
-text
-Copy code
-Column      | Description
-------------|-------------------------------
-user_id     | FK → users
-recipe_id   | FK → recipe
-viewed      | 1 = viewed, 0 = not viewed
-liked       | 1 = liked, 0 = not liked
-cooked      | 1 = attempted cook, 0 = not attempted
-</details>
-🔄 ETL Pipeline (etl_pipeline.py)
-Steps:
+4]    seed_recipes.py — Seed recipe data into Firebase 🍲
 
-Extract: Fetch collections from Firebase Firestore → Save raw CSVs
+5]    seed_users.py — Seed user data 👤
 
-Transform: Remove duplicates, standardize difficulty labels, convert interactions → 0/1, clean empty/malformed rows
+6]    seed_interactions.py — Seed interaction data 👍
 
-Validate (validate_data.py): Check for nulls, broken foreign keys, invalid difficulty, wrong datatypes, empty ingredients/steps
+7]    validate_data.py — Data validation script ✅
 
-Load: Save final normalized CSVs (recipe.csv, ingredients.csv, steps.csv, interactions.csv)
 
-📊 Analytics (analytics.py)
-Generates insights:
+2.2 DATA & CINFIG
 
-Most common ingredients
 
-Average preparation time
 
-Recipe difficulty distribution
+1]   recipe.csv — Exported recipes data
 
-Top viewed recipes
+2]   ingredients.csv — Exported ingredients data
 
-Top liked recipes
+3]   steps.csv — Exported recipe steps
 
-Prep_time vs likes correlation
+4]   interactions.csv — Exported user interactions
 
-User engagement metrics
+5]   admin_key.json — Firebase service account key 🔐
 
-Charts are saved in screenshots/.
+6]   screenshots/ — Folder to store charts and visualizations 📸
 
-<details> <summary>Click to expand Example Insights</summary>
-text
-Copy code
-Insight                   | Example Output
---------------------------|----------------
-Average prep time          | 22 minutes
-Most common ingredient     | Salt
-Most liked recipe          | r001
-Most viewed recipe         | r001
-Strongest correlation      | prep_time vs likes
-</details>
-🧪 How to Run
-<details> <summary>Click to expand How to Run Commands</summary>
-bash
-Copy code
-# Install dependencies
-pip install pandas matplotlib seaborn plotly firebase-admin
 
-# Run ETL Pipeline
+
+3. 🗂️DATA MODEL
+
+
+
+3.1 USER
+
+Fields: user_id, name, email, age, gender, created_at
+
+3.2 RECIPES
+
+ Fields: recipe_id, name, description, ingredients, steps, difficulty, created_by
+
+3.3 INTERACTIONS
+
+ Fields: interaction_id, user_id, recipe_id, type (view, like, cook), timestamp, rating
+
+ Relationship: Users interact with Recipes through Interactions 🔗
+
+ 
+
+4. ⚙️ ETL PIPELINE
+
+
+
+4.1 EXTRACT
+
+ Retrieve data from Firebase Firestore collections (users, recipes, interactions)
+
+4.2 TRANSFORM
+
+Normalize data into separate tables: recipes, ingredients, steps
+
+ Clean fields and standardize difficulty and timestamps
+
+4.3 LOAD
+
+Export transformed data into CSV files: recipe.csv, ingredients.csv, steps.csv, interactions.csv
+
+Tools Used: Python 🐍, firebase_admin, pandas, matplotlib, seaborn
+
+
+
+5. ✅ DATA VALIDATION
+
+
+
+5.1 VALIDATION RULES
+
+1]  Required fields must be present
+
+2]  Numeric fields must be positive
+
+3]  Arrays for ingredients and steps must not be empty
+
+4]  Difficulty must be Easy, Medium, or Hard
+
+5.2 VALIDATION SCRIPT
+
+validate_data.py generates a report showing valid and invalid records with reasons
+
+
+
+6. 📊  ANALYTICS & INSIGHTS
+
+   
+
+6.1 Sample Insights
+
+1] Top recipes based on likes and cook attempts
+
+2]  Most common ingredients across recipes
+
+3] Average preparation time by difficulty
+
+4] Difficulty distribution of recipes
+
+5] Correlation between prep time and likes
+
+6] Most frequently viewed recipes
+
+7] Ingredients associated with high engagement
+
+8] Users with highest interactions
+
+9] Interaction type distribution (views, likes, cooks)
+
+10] Recipes with highest average rating
+
+11] Visualizations include bar charts, pie charts, and ingredient frequency plots
+
+
+
+7. 🚀 HOW TO RUN
+
+   
+ 
+7.1 Install Dependencies
+
+   
+pip install -r requirements.txt
+
+7.2 Seed Firebase Data (Optional)
+
+
+
+python seed_users.py
+
+
+python seed_recipes.py
+
+
+python seed_interactions.py
+
+7.3 Run ETL Pipeline
+
+
+
 python etl_pipeline.py
 
-# Run Data Validation (optional)
+7.4 Validate Data
+
+
+
 python validate_data.py
 
-# Run Analytics
+7.5 Generate Analytics
+
+
+
 python analytics.py
-Charts will appear in the screenshots/ folder.
 
-</details>
-⚠️ Known Limitations
-Firestore not optimized for heavy relational workloads
+8. ⚠️NOTE
 
-ETL is batch-based, not real-time
+1] Recipe IDs in Firebase are auto-generated
 
-CSV export cannot store nested JSON perfectly
+2] User interactions are preserved even if recipes are deleted
 
-Analytics limited to available interactions (no ratings/comments)
+3] Analytics are batch-oriented, not real-time
 
-🚀 Future Enhancements
-Convert to Apache Airflow DAG
+4] Charts generated by analytics are stored in the screenshots/ folder 📸
 
-Store cleaned data in BigQuery
+9. 📝 CONCLUSION
 
-Build Power BI / Tableau dashboards
+1] This project demonstrates a complete Firebase-based data engineering workflow, including:
 
-Add ratings, comments, and user segmentation
+ Data modeling and normalization
+ ETL pipeline implementation
+ Data quality validation
+ Analytics and visualization insights
 
-Enable real-time streaming using Firebase triggers
 
-Dockerize the pipeline
+ 
 
-🔚 Conclusion
-This project delivers a complete end-to-end ETL and analytics workflow using Firebase and Python.
+Candidate: Apeksha Jadhav
 
-Raw Firestore data is converted into clean, validated CSV datasets with insights and visualizations.
+Tools Used: Python, Firebase, Pandas, Matplotlib, Seaborn
 
-The modular structure ensures scalability and provides a strong foundation for real-world data engineering projects.
+Date: November 2025
