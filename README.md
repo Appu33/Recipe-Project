@@ -1,217 +1,224 @@
-# Recipe-Project
+Recipeproject
 
-🥘 Firebase-Based Recipe Analytics Pipeline
+🍽️ Firebase Recipe Analytics Pipeline
 
-This project is part of the Data Engineering Assessment.
-It builds an end-to-end ETL + Analytics pipeline using Firebase (Firestore) as the source system.
+A Complete ETL + Analytics Project Using Firebase Firestore & Python
 
-🔧 1. Data Model
+📌 Project Overview
 
-The project uses three main collections in Firestore.
+This project implements a complete data engineering pipeline that:
 
-📘 Recipes Collection
+Extracts recipe, user, and interaction data from Firebase Firestore
 
-Stores all recipes uploaded by users.
+Transforms, validates, and normalizes the data using Python
 
-Field	Type	Description
-recipe_id	string	Unique ID (e.g., r001)
-title	string	Recipe name
-ingredients	array/text	List of ingredients
-steps	array/text	Cooking steps
-cooking_time	number	Time in minutes
-created_by	string	user_id of the creator
-created_at	timestamp	Creation time
-👤 Users Collection
+Loads clean structured data into CSV datasets
 
-Stores basic user profile data.
-
-Field	Type	Description
-user_id	string	Unique ID
-name	string	Full name
-email	string	Email address
-joined_at	timestamp	Account creation time
-⭐ User Interactions Collection
-
-Tracks how users interact with recipes.
-
-Field	Type	Description
-interaction_id	string	Unique ID
-user_id	string	User performing the action
-recipe_id	string	Recipe they interacted with
-interaction_type	string	view / like / cook_attempt
-timestamp	timestamp	When the interaction happened
-
-Relationships:
-
-A User can interact with many Recipes
-
-A Recipe can have many Interactions
-
-Interactions link Users ↔ Recipes
-
-🛠 2. Instructions for Running the Pipeline
-
-Follow the steps below to run the ETL pipeline in VS Code.
-
-Step 1 — Install Dependencies
-pip install firebase-admin pandas
-
-Step 2 — Add Firebase Credentials
-
-Download your Firebase serviceAccountKey.json and place it in the project directory.
-
-Folder structure:
-
-project/
-│── serviceAccountKey.json
-│── etl_extract.py
-│── etl_transform.py
-│── etl_load.py
-│── analytics.ipynb / analytics.py
-
-Step 3 — Run Extract Script
-python etl_extract.py
-
-
-This will pull recipes, users, and interactions from Firestore and save them as raw CSV files.
-
-Step 4 — Run Transform Script
-python etl_transform.py
-
-
-This script:
-
-cleans missing values
-
-fixes data types
-
-formats timestamps
-
-removes duplicates
-
-validates fields
-
-You get cleaned CSV files.
-
-Step 5 — Run Load Script (Optional)
-python etl_load.py
-
-
-This loads cleaned data into:
-
-SQL databases
-
-Data warehouse
-
-Or keeps them as clean CSV files
-
-Output Files (Normalized)
-
-recipes_clean.csv
-
-users_clean.csv
-
-interactions_clean.csv
-
-🔄 3. ETL Process Overview
-Extract
-
-Connects to Firebase using Admin SDK
-
-Reads data from 3 collections
-
-Dumps to raw .csv
-
-Transform
-
-Data quality rules applied:
-
-Remove duplicates
-
-Validate recipe_id & user_id
-
-Standardize timestamp format
-
-Convert cooking_time to integer
-
-Clean empty ingredients/steps
-
-Load
-
-Save normalized CSV
-
-Optional: Load into PostgreSQL / BigQuery
-
-Ready for analytics & visualization
-
-📊 4. Insights Summary (Analytics)
-
-The analytics file generates the following insights:
-
-🍽 Top 5 Most Viewed Recipes
-
-Shows recipes with the highest number of view interactions.
-
-❤️ Most Liked Recipes
-
-Ranks recipes by number of like interactions.
-
-🔥 Most Cooked Recipes
-
-Based on cook_attempt interactions — shows real engagement.
-
-👨‍🍳 Most Active User
-
-User with highest:
-
-views
-
-likes
-
-cook attempts
-
-⏱ Hourly / Daily Interaction Trend
-
-Identifies when users engage most with recipes.
-
-📈 Dashboard-Ready CSV
-
-All analytics outputs can be visualized using:
-
-Power BI
-
-Tableau
-
-Python Matplotlib
-
-Excel
-
-⚠️ 5. Known Constraints / Limitations
-
-Firebase querying is limited (no heavy joins).
-
-Pipeline depends on internet connection.
-
-Data size small since manual entry.
-
-No real-time streaming (batch only).
-
-If Firebase schema changes → scripts need updates.
-
-Timestamps assumed to be valid and properly formatted.
-
-No complex NLP on ingredients/steps (basic cleaning only).
-
-🎯 Conclusion
+Generates visual and statistical analytics insights
 
 This project demonstrates:
 
-Data modeling
+🔥 Firebase Database Integration
 
-ETL pipeline creation
+🧱 Proper Data Modeling
 
-Firebase integration
+🔄 ETL Pipeline (Extract → Transform → Load)
 
-Data cleaning
+✔ Data Quality Validation
 
-Analytics and insights generation
+📊 Analytics & Charts
+
+📁 Production-ready folder structure
+
+📝 Industry-grade documentation
+
+📂 Project Structure
+Recipeproject/
+│── README.md
+│── admin_key.json
+│── firebase_config.py
+│── etl_pipeline.py
+│── validate_data.py
+│── analytics.py
+│── seed_recipes.py
+│── seed_users.py
+│── seed_interactions.py
+│── recipe.csv
+│── ingredients.csv
+│── interactions.csv
+│── steps.csv
+│── screenshots/
+└── __pycache__/
+
+🧱 Data Model
+
+Your pipeline produces four normalized datasets.
+
+📘 recipe.csv
+Column	Description
+id	Recipe ID
+title	Recipe name
+prep_time	Preparation time (min)
+difficulty	easy / medium / hard
+created_by	User ID (FK → users)
+🥗 ingredients.csv
+Column	Description
+recipe_id	FK → recipe.id
+name	Ingredient name
+📄 steps.csv
+Column	Description
+recipe_id	FK → recipe.id
+step_no	Step number
+description	Step instructions
+⭐ interactions.csv
+Column	Description
+user_id	FK → users
+recipe_id	FK → recipe
+viewed	1 = viewed
+liked	1 = liked
+cooked	1 = attempted cook
+🔄 ETL Pipeline (etl_pipeline.py)
+1️⃣ Extract
+
+Connects to Firestore using firebase_config.py
+
+Fetches collections:
+
+recipes
+
+users
+
+interactions
+
+Saves raw data to CSV
+
+2️⃣ Transform
+
+Cleans and standardizes:
+
+Removes duplicates
+
+Converts timestamps to date
+
+Standardizes difficulty labels
+
+Converts viewed/liked/cooked → 0/1
+
+Removes blank or malformed rows
+
+3️⃣ Validate (validate_data.py)
+
+Quality checks performed:
+
+Missing or null values
+
+Broken foreign keys
+
+Invalid difficulty fields
+
+Incorrect datatypes
+
+Empty ingredient/step lists
+
+4️⃣ Load
+
+Outputs final normalized CSV files:
+
+recipe.csv
+
+ingredients.csv
+
+steps.csv
+
+interactions.csv
+
+📊 Analytics (analytics.py)
+
+Run:
+
+python analytics.py
+
+
+Generates insights such as:
+
+✔ Most common ingredients
+
+✔ Average preparation time
+
+✔ Recipe difficulty distribution
+
+✔ Top viewed recipes
+
+✔ Top liked recipes
+
+✔ Correlation: prep_time vs likes
+
+✔ User engagement metrics
+
+Visual charts are automatically saved inside:
+
+screenshots/
+
+📈 Example Insights
+Insight	Example Output
+Average prep time	22 minutes
+Most common ingredient	Salt
+Most liked recipe	r001
+Most viewed recipe	r001
+Strongest correlation	prep_time vs likes
+
+🧪 How to Run This Project
+1️⃣ Install dependencies
+pip install pandas matplotlib firebase-admin seaborn plotly
+
+
+If permission issues occur:
+
+pip install --user pandas matplotlib seaborn plotly
+
+2️⃣ Add Firebase Admin Key
+
+Place admin_key.json inside the project folder.
+
+3️⃣ Run ETL
+python etl_pipeline.py
+
+4️⃣ Run Data Validation (optional)
+python validate_data.py
+
+5️⃣ Run Analytics
+python analytics.py
+
+⚠️ Known Limitations
+
+Firestore is not optimized for heavy relational workloads
+
+ETL runs in batch mode, not real-time
+
+CSV export cannot store nested JSON perfectly
+
+Analytics limited to available interaction types (no ratings/comments)
+
+🚀 Future Enhancements
+
+Convert this pipeline into an Apache Airflow DAG
+
+Store cleaned data in BigQuery instead of CSV
+
+Build a full Power BI / Tableau dashboard
+
+Add:
+
+recipe ratings
+
+comments
+
+user segmentation
+
+Add real-time streaming using Firebase triggers
+
+Dockerize the entire pipeline
+
+🔚 Conclusion
+
+This project delivers a complete end-to-end ETL and analytics pipeline built on Firebase and Python. It converts raw Firestore data into clean, validated CSV datasets and generates meaningful insights with visual charts. The structure is modular, easy to extend, and serves as a strong foundation for real-world data engineering workflows.
