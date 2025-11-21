@@ -28,7 +28,7 @@ The pipeline demonstrates end-to-end data engineering skills, including ETL, dat
 7]    validate_data.py — Data validation script ✅
 
 
-2.2 DATA & CINFIG
+2.2 DATA & CONFIG
 
 
 
