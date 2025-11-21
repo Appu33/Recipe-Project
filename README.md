@@ -1,22 +1,16 @@
-Recipeproject
+RECIPE PROJECT
 
-🍽️ Firebase Recipe Analytics Pipeline
+🍽️ FIREBASE RECIPE ANALYTICS PIPELINE
 
 A Complete ETL + Analytics Project Using Firebase Firestore & Python
 
-📌 Project Overview
+📌 PROJECT OVERVIEW
 
 This project implements a complete data engineering pipeline that:
+Extracts recipe, user, and interaction data from Firebase Firestor Transforms, validates, and normalizes the data using Python Loads clean structured data into CSV datasets Generates visual and statistical analytics insights
 
-Extracts recipe, user, and interaction data from Firebase Firestore
 
-Transforms, validates, and normalizes the data using Python
-
-Loads clean structured data into CSV datasets
-
-Generates visual and statistical analytics insights
-
-This project demonstrates:
+THIS PROJECT DEMONSTRATES:
 
 🔥 Firebase Database Integration
 
@@ -32,7 +26,7 @@ This project demonstrates:
 
 📝 Industry-grade documentation
 
-📂 Project Structure
+📂 PROJECT STRUCTURE
 Recipeproject/
 │── README.md
 │── admin_key.json
@@ -50,7 +44,7 @@ Recipeproject/
 │── screenshots/
 └── __pycache__/
 
-🧱 Data Model
+🧱 DATA MODEL
 
 Your pipeline produces four normalized datasets.
 
@@ -77,8 +71,9 @@ recipe_id	FK → recipe
 viewed	1 = viewed
 liked	1 = liked
 cooked	1 = attempted cook
-🔄 ETL Pipeline (etl_pipeline.py)
-1️⃣ Extract
+🔄 ETL PIPELINE(etl_pipeline.py)
+
+1️⃣EXTRACT
 
 Connects to Firestore using firebase_config.py
 
@@ -92,7 +87,7 @@ interactions
 
 Saves raw data to CSV
 
-2️⃣ Transform
+2️⃣ TRANSFORM
 
 Cleans and standardizes:
 
@@ -106,7 +101,7 @@ Converts viewed/liked/cooked → 0/1
 
 Removes blank or malformed rows
 
-3️⃣ Validate (validate_data.py)
+3️⃣ VALIDATE(validate_data.py)
 
 Quality checks performed:
 
@@ -120,7 +115,7 @@ Incorrect datatypes
 
 Empty ingredient/step lists
 
-4️⃣ Load
+4️⃣ LOAD
 
 Outputs final normalized CSV files:
 
@@ -132,7 +127,7 @@ steps.csv
 
 interactions.csv
 
-📊 Analytics (analytics.py)
+📊 ANALYTICS (analytics.py)
 
 Run:
 
@@ -167,7 +162,8 @@ Most liked recipe	r001
 Most viewed recipe	r001
 Strongest correlation	prep_time vs likes
 
-🧪 How to Run This Project
+🧪 HOW TO RUN THIS PROJECT
+
 1️⃣ Install dependencies
 pip install pandas matplotlib firebase-admin seaborn plotly
 
@@ -189,7 +185,8 @@ python validate_data.py
 5️⃣ Run Analytics
 python analytics.py
 
-⚠️ Known Limitations
+⚠️KNOWN LIMITATIONS
+
 
 Firestore is not optimized for heavy relational workloads
 
@@ -219,6 +216,6 @@ Add real-time streaming using Firebase triggers
 
 Dockerize the entire pipeline
 
-🔚 Conclusion
+🔚 CONCLUSION
 
 This project delivers a complete end-to-end ETL and analytics pipeline built on Firebase and Python. It converts raw Firestore data into clean, validated CSV datasets and generates meaningful insights with visual charts. The structure is modular, easy to extend, and serves as a strong foundation for real-world data engineering workflows.
