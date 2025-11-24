@@ -1,45 +1,45 @@
-recipe_id,name,quantity
-r001,Paneer,200g
-r001,Butter,50g
-r001,Tomato,3
-r001,Cream,50ml
-r002,Ingredient1,100g
-r002,Ingredient2,50g
-r003,Ingredient1,100g
-r003,Ingredient2,50g
-r004,Ingredient1,100g
-r004,Ingredient2,50g
-r005,Ingredient1,100g
-r005,Ingredient2,50g
-r006,Ingredient1,100g
-r006,Ingredient2,50g
-r007,Ingredient1,100g
-r007,Ingredient2,50g
-r008,Ingredient1,100g
-r008,Ingredient2,50g
-r009,Ingredient1,100g
-r009,Ingredient2,50g
-r010,Ingredient1,100g
-r010,Ingredient2,50g
-r011,Ingredient1,100g
-r011,Ingredient2,50g
-r012,Ingredient1,100g
-r012,Ingredient2,50g
-r013,Ingredient1,100g
-r013,Ingredient2,50g
-r014,Ingredient1,100g
-r014,Ingredient2,50g
-r015,Ingredient1,100g
-r015,Ingredient2,50g
-r016,Ingredient1,100g
-r016,Ingredient2,50g
-r017,Ingredient1,100g
-r017,Ingredient2,50g
-r018,Ingredient1,100g
-r018,Ingredient2,50g
-r019,Ingredient1,100g
-r019,Ingredient2,50g
-r020,Ingredient1,100g
-r020,Ingredient2,50g
-r021,Ingredient1,100g
-r021,Ingredient2,50g
+recipe_id,name,quantity,category,calories
+r001,Paneer,200g,Dairy,520
+r001,Butter,50g,Dairy,360
+r001,Tomato,3,Vegetable,30
+r001,Cream,50ml,Dairy,200
+r002,Continental Ingredient A2,100g,Generic,121
+r002,Continental Ingredient B2,50g,Generic,91
+r003,Indian Ingredient A3,100g,Generic,171
+r003,Indian Ingredient B3,50g,Generic,46
+r004,Mexican Ingredient A4,100g,Generic,115
+r004,Mexican Ingredient B4,50g,Generic,83
+r005,Italian Ingredient A5,100g,Generic,145
+r005,Italian Ingredient B5,50g,Generic,30
+r006,Mexican Ingredient A6,100g,Generic,131
+r006,Mexican Ingredient B6,50g,Generic,31
+r007,Italian Ingredient A7,100g,Generic,128
+r007,Italian Ingredient B7,50g,Generic,80
+r008,Italian Ingredient A8,100g,Generic,59
+r008,Italian Ingredient B8,50g,Generic,35
+r009,Indian Ingredient A9,100g,Generic,185
+r009,Indian Ingredient B9,50g,Generic,90
+r010,Mexican Ingredient A10,100g,Generic,200
+r010,Mexican Ingredient B10,50g,Generic,76
+r011,Indian Ingredient A11,100g,Generic,121
+r011,Indian Ingredient B11,50g,Generic,53
+r012,Indian Ingredient A12,100g,Generic,63
+r012,Indian Ingredient B12,50g,Generic,43
+r013,Continental Ingredient A13,100g,Generic,147
+r013,Continental Ingredient B13,50g,Generic,33
+r014,Continental Ingredient A14,100g,Generic,162
+r014,Continental Ingredient B14,50g,Generic,35
+r015,Italian Ingredient A15,100g,Generic,124
+r015,Italian Ingredient B15,50g,Generic,91
+r016,Mexican Ingredient A16,100g,Generic,131
+r016,Mexican Ingredient B16,50g,Generic,45
+r017,Mexican Ingredient A17,100g,Generic,111
+r017,Mexican Ingredient B17,50g,Generic,99
+r018,Mexican Ingredient A18,100g,Generic,182
+r018,Mexican Ingredient B18,50g,Generic,73
+r019,Mexican Ingredient A19,100g,Generic,177
+r019,Mexican Ingredient B19,50g,Generic,35
+r020,Continental Ingredient A20,100g,Generic,180
+r020,Continental Ingredient B20,50g,Generic,87
+r021,Mexican Ingredient A21,100g,Generic,97
+r021,Mexican Ingredient B21,50g,Generic,59
