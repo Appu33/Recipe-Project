@@ -1,106 +1,106 @@
-recipe_id,user_id,viewed,liked,rating
-r001,u001,False,True,2
-r001,u002,False,False,2
-r001,u003,True,True,2
-r001,u004,True,False,2
-r001,u005,False,True,3
-r002,u001,True,True,3
-r002,u002,False,False,2
-r002,u003,True,False,4
-r002,u004,False,False,4
-r002,u005,False,False,5
-r003,u001,True,True,2
-r003,u002,False,True,2
-r003,u003,False,True,4
-r003,u004,True,False,5
-r003,u005,False,True,5
-r004,u001,False,True,1
-r004,u002,True,False,4
-r004,u003,False,True,5
-r004,u004,True,True,4
-r004,u005,True,True,3
-r005,u001,True,False,1
-r005,u002,False,False,3
-r005,u003,True,True,3
-r005,u004,False,True,1
-r005,u005,False,False,4
-r006,u001,True,False,3
-r006,u002,False,False,2
-r006,u003,True,True,5
-r006,u004,True,True,5
-r006,u005,True,False,1
-r007,u001,True,True,1
-r007,u002,False,False,2
-r007,u003,False,True,2
-r007,u004,True,True,3
-r007,u005,False,True,3
-r008,u001,False,False,4
-r008,u002,False,False,3
-r008,u003,True,True,4
-r008,u004,True,True,1
-r008,u005,False,True,4
-r009,u001,False,False,3
-r009,u002,False,False,3
-r009,u003,False,True,2
-r009,u004,False,True,3
-r009,u005,True,False,3
-r010,u001,False,False,2
-r010,u002,False,True,3
-r010,u003,True,True,2
-r010,u004,True,False,2
-r010,u005,False,False,2
-r011,u001,True,False,3
-r011,u002,False,True,2
-r011,u003,True,True,4
-r011,u004,True,False,5
-r011,u005,True,False,2
-r012,u001,True,True,3
-r012,u002,False,False,5
-r012,u003,False,False,4
-r012,u004,False,False,5
-r012,u005,True,True,5
-r013,u001,False,True,4
-r013,u002,True,True,2
-r013,u003,True,True,3
-r013,u004,True,False,5
-r013,u005,True,True,4
-r014,u001,True,True,3
-r014,u002,True,True,1
-r014,u003,False,False,4
-r014,u004,True,True,4
-r014,u005,True,False,3
-r015,u001,False,True,5
-r015,u002,False,False,5
-r015,u003,True,True,3
-r015,u004,False,True,1
-r015,u005,False,False,4
-r016,u001,True,False,4
-r016,u002,True,False,2
-r016,u003,False,False,2
-r016,u004,True,False,2
-r016,u005,True,True,1
-r017,u001,True,False,3
-r017,u002,True,True,3
-r017,u003,True,True,1
-r017,u004,True,False,3
-r017,u005,False,True,4
-r018,u001,True,True,5
-r018,u002,False,True,4
-r018,u003,False,True,3
-r018,u004,True,False,5
-r018,u005,False,True,3
-r019,u001,False,False,4
-r019,u002,True,False,2
-r019,u003,False,True,1
-r019,u004,False,False,1
-r019,u005,False,True,1
-r020,u001,True,False,2
-r020,u002,False,True,3
-r020,u003,True,False,2
-r020,u004,False,True,4
-r020,u005,False,True,4
-r021,u001,False,False,5
-r021,u002,False,True,1
-r021,u003,False,True,5
-r021,u004,False,True,2
-r021,u005,False,True,3
+recipe_id,user_id,viewed,liked,rating,timestamp,device,session_duration,reaction
+r001,u001,True,False,3,2025-11-19 18:42:27,desktop,12,
+r001,u002,True,False,1,2025-11-15 07:48:23,mobile,1,
+r001,u003,True,True,5,2025-11-15 13:51:22,desktop,17,loved
+r001,u004,False,False,2,2025-11-19 05:23:41,desktop,12,
+r001,u005,True,False,2,2025-10-30 00:55:14,desktop,19,
+r002,u001,False,False,2,2025-11-05 17:41:01,mobile,13,
+r002,u002,True,True,5,2025-11-16 06:46:58,mobile,17,liked
+r002,u003,True,True,4,2025-11-24 12:49:51,mobile,17,wow
+r002,u004,False,False,1,2025-11-14 16:56:21,desktop,27,
+r002,u005,True,True,4,2025-11-12 13:43:40,desktop,13,angry
+r003,u001,False,False,1,2025-10-30 09:50:28,desktop,27,
+r003,u002,True,True,3,2025-10-31 18:29:31,desktop,28,wow
+r003,u003,True,False,2,2025-11-10 23:23:27,desktop,18,
+r003,u004,True,False,1,2025-11-19 03:47:09,desktop,30,
+r003,u005,False,False,3,2025-11-18 23:02:09,mobile,21,
+r004,u001,True,True,5,2025-11-04 06:17:22,desktop,3,angry
+r004,u002,False,False,3,2025-11-22 13:22:25,desktop,12,
+r004,u003,False,False,3,2025-10-25 19:33:28,desktop,2,
+r004,u004,True,False,1,2025-11-06 12:57:58,desktop,30,
+r004,u005,True,True,3,2025-11-05 04:05:02,mobile,28,wow
+r005,u001,True,True,5,2025-10-30 20:50:34,desktop,22,loved
+r005,u002,True,True,5,2025-11-14 05:32:01,desktop,6,loved
+r005,u003,True,True,3,2025-10-25 08:01:38,mobile,28,angry
+r005,u004,True,True,5,2025-11-23 22:53:54,desktop,26,liked
+r005,u005,True,True,4,2025-11-21 13:02:32,desktop,7,loved
+r006,u001,True,False,2,2025-11-17 18:24:38,mobile,26,
+r006,u002,True,False,2,2025-11-13 10:44:28,mobile,29,
+r006,u003,True,False,2,2025-10-30 00:30:27,desktop,21,
+r006,u004,True,True,4,2025-11-12 00:50:29,mobile,29,sad
+r006,u005,False,False,3,2025-11-10 22:47:20,mobile,5,
+r007,u001,True,True,5,2025-11-19 05:44:51,desktop,15,wow
+r007,u002,True,True,4,2025-11-03 04:41:23,desktop,23,loved
+r007,u003,True,True,4,2025-11-11 05:40:37,mobile,25,sad
+r007,u004,True,False,3,2025-10-31 09:50:08,mobile,10,
+r007,u005,True,False,3,2025-10-28 06:26:27,mobile,18,
+r008,u001,False,False,2,2025-10-26 09:58:47,desktop,18,
+r008,u002,True,False,1,2025-11-06 04:47:19,desktop,25,
+r008,u003,True,True,4,2025-11-07 10:34:44,desktop,19,angry
+r008,u004,True,True,5,2025-11-21 00:36:46,mobile,25,angry
+r008,u005,True,False,2,2025-10-28 15:06:26,desktop,9,
+r009,u001,False,False,2,2025-10-27 08:45:19,mobile,25,
+r009,u002,False,False,2,2025-11-23 07:05:32,mobile,25,
+r009,u003,True,False,2,2025-11-22 21:14:37,mobile,24,
+r009,u004,True,True,3,2025-11-12 16:18:02,desktop,3,wow
+r009,u005,True,True,5,2025-11-13 21:10:31,mobile,1,sad
+r010,u001,True,False,3,2025-11-04 04:26:20,desktop,3,
+r010,u002,True,True,5,2025-11-10 22:47:31,desktop,28,angry
+r010,u003,True,True,3,2025-11-24 03:01:28,desktop,1,wow
+r010,u004,False,False,3,2025-10-26 10:49:54,desktop,29,
+r010,u005,True,False,3,2025-11-05 11:17:37,desktop,6,
+r011,u001,True,True,4,2025-11-02 13:10:26,mobile,23,loved
+r011,u002,False,False,3,2025-10-28 04:10:38,mobile,11,
+r011,u003,True,False,2,2025-10-31 21:53:17,mobile,1,
+r011,u004,False,False,3,2025-11-05 23:08:06,mobile,16,
+r011,u005,True,True,4,2025-11-03 06:40:40,mobile,8,liked
+r012,u001,True,True,3,2025-11-24 03:56:38,desktop,27,sad
+r012,u002,True,True,5,2025-11-23 21:21:20,desktop,5,liked
+r012,u003,True,False,1,2025-10-27 15:18:53,mobile,12,
+r012,u004,False,False,3,2025-11-10 07:58:15,mobile,6,
+r012,u005,True,False,3,2025-10-25 03:39:02,desktop,11,
+r013,u001,True,True,5,2025-11-23 00:18:11,desktop,22,sad
+r013,u002,True,True,3,2025-10-30 19:12:52,desktop,25,angry
+r013,u003,True,True,5,2025-11-16 01:15:45,mobile,3,loved
+r013,u004,True,True,3,2025-11-18 07:14:02,mobile,5,loved
+r013,u005,True,True,3,2025-11-09 07:32:53,mobile,14,angry
+r014,u001,False,False,3,2025-11-04 04:42:26,mobile,23,
+r014,u002,True,True,3,2025-11-11 18:10:27,desktop,10,wow
+r014,u003,True,True,3,2025-11-05 22:27:02,mobile,22,sad
+r014,u004,False,False,2,2025-11-16 13:15:28,mobile,19,
+r014,u005,True,False,1,2025-11-04 11:03:40,mobile,11,
+r015,u001,True,False,2,2025-11-17 03:07:38,mobile,6,
+r015,u002,True,True,5,2025-10-30 10:57:56,desktop,6,sad
+r015,u003,False,False,2,2025-11-14 17:30:52,mobile,1,
+r015,u004,True,True,4,2025-11-21 19:45:35,desktop,15,angry
+r015,u005,True,True,4,2025-11-23 11:21:21,mobile,1,liked
+r016,u001,True,False,3,2025-11-02 18:03:39,mobile,25,
+r016,u002,False,False,2,2025-11-11 07:10:47,mobile,18,
+r016,u003,True,False,3,2025-10-29 02:56:44,desktop,16,
+r016,u004,True,True,4,2025-11-12 21:32:32,mobile,16,liked
+r016,u005,True,True,4,2025-11-24 10:30:04,mobile,8,loved
+r017,u001,True,False,2,2025-11-13 20:18:06,mobile,20,
+r017,u002,True,True,5,2025-11-02 19:36:18,desktop,15,angry
+r017,u003,True,False,2,2025-11-12 13:58:13,desktop,4,
+r017,u004,True,True,4,2025-11-22 03:57:09,mobile,25,angry
+r017,u005,False,False,3,2025-11-05 06:36:35,desktop,13,
+r018,u001,True,True,4,2025-11-19 09:51:49,desktop,30,sad
+r018,u002,True,True,4,2025-11-24 12:15:27,mobile,11,wow
+r018,u003,True,True,3,2025-11-21 10:00:28,desktop,5,angry
+r018,u004,True,False,3,2025-11-13 03:56:40,desktop,14,
+r018,u005,True,False,1,2025-11-12 05:19:29,desktop,13,
+r019,u001,False,False,1,2025-10-30 06:25:53,mobile,30,
+r019,u002,True,False,2,2025-11-05 04:39:25,desktop,16,
+r019,u003,True,False,1,2025-10-27 20:34:41,mobile,4,
+r019,u004,True,False,2,2025-11-08 01:03:38,mobile,23,
+r019,u005,True,True,3,2025-10-29 08:13:04,mobile,7,sad
+r020,u001,True,False,3,2025-10-25 04:19:20,desktop,4,
+r020,u002,True,False,2,2025-10-27 22:36:21,desktop,25,
+r020,u003,True,True,3,2025-11-19 16:13:15,desktop,9,loved
+r020,u004,True,False,1,2025-11-19 23:14:37,desktop,26,
+r020,u005,False,False,1,2025-11-17 11:05:10,desktop,24,
+r021,u001,False,False,1,2025-11-02 00:56:48,mobile,22,
+r021,u002,False,False,3,2025-11-02 02:21:37,desktop,3,
+r021,u003,True,True,4,2025-11-13 15:10:11,desktop,14,wow
+r021,u004,True,False,1,2025-10-27 12:21:33,mobile,3,
+r021,u005,False,False,3,2025-11-13 17:16:01,desktop,6,
