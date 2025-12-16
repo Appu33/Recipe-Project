@@ -1,4 +1,4 @@
-# 🍽️ Firebase Recipe Project
+# 🍽️ Firebase-Recipe-Management-System
 
 <p align="center">
   <strong>Candidate:</strong> Apeksha Jadhav &nbsp;|&nbsp;
